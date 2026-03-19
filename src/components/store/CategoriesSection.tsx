@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { Footprints, Watch, Shirt, Gem, ShoppingBag, Glasses } from 'lucide-react';
 
 const defaultCategories = [
-  { name: 'Calçados', icon: Footprints, slug: 'calcados' },
-  { name: 'Relógios', icon: Watch, slug: 'relogios' },
-  { name: 'Roupas', icon: Shirt, slug: 'roupas' },
-  { name: 'Joias', icon: Gem, slug: 'joias' },
-  { name: 'Bolsas', icon: ShoppingBag, slug: 'bolsas' },
-  { name: 'Óculos', icon: Glasses, slug: 'oculos' },
+  { name: 'Calçados', icon: Footprints },
+  { name: 'Relógios', icon: Watch },
+  { name: 'Roupas', icon: Shirt },
+  { name: 'Joias', icon: Gem },
+  { name: 'Bolsas', icon: ShoppingBag },
+  { name: 'Óculos', icon: Glasses },
 ];
 
 export default function CategoriesSection() {
@@ -33,14 +33,14 @@ export default function CategoriesSection() {
         <div className="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-8">
           {defaultCategories.map((cat, i) => (
             <motion.div
-              key={cat.slug}
+              key={cat.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
             >
               <Link
-                to={`/shop?category=${cat.slug}`}
+                to={`/shop?category=${encodeURIComponent(cat.name)}`}
                 className="flex flex-col items-center gap-3 group"
               >
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-secondary flex items-center justify-center group-hover:bg-gold/10 transition-colors">
