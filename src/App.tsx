@@ -10,6 +10,10 @@ import Shop from "./pages/Shop.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
 import AdminLogin from "./pages/AdminLogin.tsx";
 import AdminSettings from "./pages/AdminSettings.tsx";
+import AdminProducts from "./pages/AdminProducts.tsx";
+import AdminBanners from "./pages/AdminBanners.tsx";
+import AdminFooter from "./pages/AdminFooter.tsx";
+import AdminShipping from "./pages/AdminShipping.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
