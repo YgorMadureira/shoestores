@@ -62,6 +62,45 @@ export type Database = {
         }
         Relationships: []
       }
+      shipping_rates: {
+        Row: {
+          carrier_name: string | null
+          cep_end: string
+          cep_start: string
+          company_id: string
+          created_at: string
+          delivery_days: number | null
+          id: string
+          price: number
+          weight_max: number
+          weight_min: number
+        }
+        Insert: {
+          carrier_name?: string | null
+          cep_end: string
+          cep_start: string
+          company_id?: string
+          created_at?: string
+          delivery_days?: number | null
+          id?: string
+          price: number
+          weight_max?: number
+          weight_min?: number
+        }
+        Update: {
+          carrier_name?: string | null
+          cep_end?: string
+          cep_start?: string
+          company_id?: string
+          created_at?: string
+          delivery_days?: number | null
+          id?: string
+          price?: number
+          weight_max?: number
+          weight_min?: number
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
