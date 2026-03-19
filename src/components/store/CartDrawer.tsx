@@ -102,9 +102,9 @@ export default function CartDrawer() {
                     {formatPrice(totalPrice)}
                   </span>
                 </div>
-                <Link to="/checkout" onClick={() => setIsOpen(false)}>
+                <Link to="/cart" onClick={() => setIsOpen(false)}>
                   <Button variant="hero" size="lg" className="w-full">
-                    Finalizar Compra
+                    Ver Sacola
                   </Button>
                 </Link>
               </div>

@@ -8,6 +8,8 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index.tsx";
 import Shop from "./pages/Shop.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
+import CartPage from "./pages/CartPage.tsx";
+import CheckoutPage from "./pages/CheckoutPage.tsx";
 import AdminLogin from "./pages/AdminLogin.tsx";
 import AdminSettings from "./pages/AdminSettings.tsx";
 import AdminProducts from "./pages/AdminProducts.tsx";
@@ -30,6 +32,8 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/product/:id" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
               <Route path="/admin/products" element={<AdminProducts />} />
