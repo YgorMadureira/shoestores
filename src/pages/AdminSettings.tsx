@@ -8,7 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
-import { Save, LogOut, Eye, EyeOff, ArrowLeft, CreditCard, Truck } from 'lucide-react';
+import { Save, LogOut, Eye, EyeOff, ArrowLeft, CreditCard, Truck, Package, Image as ImageIcon, FileSpreadsheet, Footprints } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const COMPANY_ID = 'default';
 
