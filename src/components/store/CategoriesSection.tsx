@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { Footprints, Watch, Shirt, Gem, ShoppingBag, Glasses } from 'lucide-react';
 
 const defaultCategories = [
-  { name: 'Calçados', icon: Footprints, slug: 'calcados' },
-  { name: 'Relógios', icon: Watch, slug: 'relogios' },
-  { name: 'Roupas', icon: Shirt, slug: 'roupas' },
-  { name: 'Joias', icon: Gem, slug: 'joias' },
-  { name: 'Bolsas', icon: ShoppingBag, slug: 'bolsas' },
-  { name: 'Óculos', icon: Glasses, slug: 'oculos' },
+  { name: 'Calçados', icon: Footprints },
+  { name: 'Relógios', icon: Watch },
+  { name: 'Roupas', icon: Shirt },
+  { name: 'Joias', icon: Gem },
+  { name: 'Bolsas', icon: ShoppingBag },
+  { name: 'Óculos', icon: Glasses },
 ];
 
 export default function CategoriesSection() {
