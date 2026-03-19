@@ -139,6 +139,26 @@ export default function AdminSettings() {
       </header>
 
       <div className="container py-8 max-w-2xl">
+        {/* Quick links to admin sections */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+          <Link to="/admin/products" className="flex flex-col items-center gap-2 p-4 rounded border border-border bg-card hover:border-accent transition-colors">
+            <Package size={24} className="text-muted-foreground" />
+            <span className="text-xs font-body font-medium">Produtos</span>
+          </Link>
+          <Link to="/admin/banners" className="flex flex-col items-center gap-2 p-4 rounded border border-border bg-card hover:border-accent transition-colors">
+            <ImageIcon size={24} className="text-muted-foreground" />
+            <span className="text-xs font-body font-medium">Banners</span>
+          </Link>
+          <Link to="/admin/footer" className="flex flex-col items-center gap-2 p-4 rounded border border-border bg-card hover:border-accent transition-colors">
+            <Footprints size={24} className="text-muted-foreground" />
+            <span className="text-xs font-body font-medium">Rodapé</span>
+          </Link>
+          <Link to="/admin/shipping" className="flex flex-col items-center gap-2 p-4 rounded border border-border bg-card hover:border-accent transition-colors">
+            <FileSpreadsheet size={24} className="text-muted-foreground" />
+            <span className="text-xs font-body font-medium">Fretes</span>
+          </Link>
+        </div>
+
         <Tabs defaultValue="mercadopago">
           <TabsList className="w-full">
             <TabsTrigger value="mercadopago" className="flex-1 gap-2">
