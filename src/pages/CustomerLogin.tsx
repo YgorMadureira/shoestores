@@ -78,41 +78,32 @@ export default function CustomerLogin() {
 
     setLoading(true);
 
+    const cleanCpf = regCpf.replace(/\D/g, '');
+
     const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
       email: regEmail,
       password: regPassword,
       options: {
-        data: { full_name: regName },
+        data: { 
+          full_name: regName,
+          cpf: cleanCpf,
+          phone: regPhone || null
+        },
         emailRedirectTo: window.location.origin,
       },
     });
 
     if (signUpError) {
-      toast.error(signUpError.message);
+      if (signUpError.message.includes('already registered')) {
+        toast.error('Este e-mail já está em uso.');
+      } else {
+        toast.error(signUpError.message);
+      }
       setLoading(false);
       return;
     }
 
     if (signUpData.user) {
-      // Insert customer record
-      const { error: customerError } = await supabase.from('customers').insert({
-        id: signUpData.user.id,
-        cpf: regCpf.replace(/\D/g, ''),
-        full_name: regName,
-        email: regEmail,
-        phone: regPhone || null,
-      });
-
-      if (customerError) {
-        if (customerError.message.includes('duplicate') || customerError.message.includes('unique')) {
-          toast.error('CPF já cadastrado');
-        } else {
-          toast.error('Erro ao criar cadastro: ' + customerError.message);
-        }
-        setLoading(false);
-        return;
-      }
-
       toast.success('Cadastro realizado! Redirecionando para o checkout...');
       navigate('/checkout');
     }
