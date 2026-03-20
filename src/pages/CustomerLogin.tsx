@@ -113,8 +113,8 @@ export default function CustomerLogin() {
         return;
       }
 
-      toast.success('Cadastro realizado! Verifique seu e-mail para confirmar.');
-      setIsLogin(true);
+      toast.success('Cadastro realizado! Redirecionando para o checkout...');
+      navigate('/checkout');
     }
     setLoading(false);
   };

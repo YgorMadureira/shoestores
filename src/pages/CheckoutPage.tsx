@@ -55,25 +55,48 @@ export default function CheckoutPage() {
     if (authLoading) return;
     if (!user) { setCustomerLoading(false); return; }
 
-    supabase.from('customers').select('*').eq('id', user.id).maybeSingle().then(({ data }) => {
-      if (data) {
-        setCustomer(data);
-        if (data.cep) setCep(data.cep);
-        if (data.address) setAddress(data.address);
-        if (data.address_number) setNumber(data.address_number);
-        if (data.complement) setComplement(data.complement);
-        if (data.city) setCity(data.city);
-        if (data.state) setState(data.state);
+    const fetchCustomer = async () => {
+      try {
+        const { data } = await supabase.from('customers').select('*').eq('id', user.id).maybeSingle();
+        if (data) {
+          setCustomer(data);
+          if (data.cep) setCep(data.cep);
+          if (data.address) setAddress(data.address);
+          if (data.address_number) setNumber(data.address_number);
+          if (data.complement) setComplement(data.complement);
+          if (data.city) setCity(data.city);
+          if (data.state) setState(data.state);
+        }
+      } catch (err) {
+        console.error("Erro ao carregar cliente no checkout:", err);
+      } finally {
+        setCustomerLoading(false);
       }
-      setCustomerLoading(false);
-    });
+    };
+
+    fetchCustomer();
   }, [user, authLoading]);
 
-  const handleCepChange = (value: string) => {
+  const handleCepChange = async (value: string) => {
     const formatted = formatCep(value);
     setCep(formatted);
     setShippingCalculated(false);
     setSelectedShipping(null);
+
+    const cleanCep = formatted.replace(/\D/g, '');
+    if (cleanCep.length === 8) {
+      try {
+        const response = await fetch(`https://viacep.com.br/ws/${cleanCep}/json/`);
+        const data = await response.json();
+        if (!data.erro) {
+          setAddress(data.logradouro || '');
+          setCity(data.localidade || '');
+          setState(data.uf || '');
+        }
+      } catch (err) {
+        console.error("Erro ao buscar CEP via ViaCEP:", err);
+      }
+    }
   };
 
   const handleCalculateShipping = async () => {

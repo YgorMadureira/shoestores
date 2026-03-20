@@ -82,27 +82,30 @@ export default function CustomerAccount() {
 
   const fetchCustomer = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from('customers')
-      .select('*')
-      .eq('id', user!.id)
-      .maybeSingle();
+    try {
+      const { data, error } = await supabase
+        .from('customers')
+        .select('*')
+        .eq('id', user!.id)
+        .maybeSingle();
 
-    if (data) {
-      setCustomer(data as Customer);
-      setFullName(data.full_name);
-      setPhone(data.phone || '');
-      setCep(data.cep || '');
-      setAddress(data.address || '');
-      setAddressNumber(data.address_number || '');
-      setComplement(data.complement || '');
-      setCity(data.city || '');
-      setState(data.state || '');
-    } else if (!error) {
-      // No customer record, redirect to register
-      navigate('/login');
+      if (data) {
+        setCustomer(data as Customer);
+        setFullName(data.full_name);
+        setPhone(data.phone || '');
+        setCep(data.cep || '');
+        setAddress(data.address || '');
+        setAddressNumber(data.address_number || '');
+        setComplement(data.complement || '');
+        setCity(data.city || '');
+        setState(data.state || '');
+      } else if (!error) {
+        // No customer record, redirect to register
+        navigate('/login');
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const fetchOrders = async () => {

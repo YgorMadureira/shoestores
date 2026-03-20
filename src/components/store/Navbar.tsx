@@ -49,7 +49,7 @@ export default function Navbar() {
             <Search size={18} />
           </button>
           <Link
-            to="/account"
+            to="/minha-conta"
             className="p-2 text-muted-foreground hover:text-foreground transition-colors hidden sm:block"
             aria-label="Minha conta"
           >
@@ -105,7 +105,7 @@ export default function Navbar() {
               <Link to="/categories" onClick={() => setMobileMenuOpen(false)} className="text-sm font-body font-medium tracking-wide uppercase py-2 text-foreground">
                 Categorias
               </Link>
-              <Link to="/account" onClick={() => setMobileMenuOpen(false)} className="text-sm font-body font-medium tracking-wide uppercase py-2 text-foreground">
+              <Link to="/minha-conta" onClick={() => setMobileMenuOpen(false)} className="text-sm font-body font-medium tracking-wide uppercase py-2 text-foreground">
                 Minha Conta
               </Link>
             </div>

@@ -18,6 +18,7 @@ import AdminProducts from "./pages/AdminProducts.tsx";
 import AdminBanners from "./pages/AdminBanners.tsx";
 import AdminFooter from "./pages/AdminFooter.tsx";
 import AdminShipping from "./pages/AdminShipping.tsx";
+import AdminCustomers from "./pages/AdminCustomers.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
               <Route path="/admin/banners" element={<AdminBanners />} />
               <Route path="/admin/footer" element={<AdminFooter />} />
               <Route path="/admin/shipping" element={<AdminShipping />} />
+              <Route path="/admin/customers" element={<AdminCustomers />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
