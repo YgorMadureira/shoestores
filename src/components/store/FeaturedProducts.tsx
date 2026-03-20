@@ -33,7 +33,7 @@ export default function FeaturedProducts() {
           </Link>
         </motion.div>
 
-        <ProductGrid products={products.slice(0, 8)} loading={loading} />
+        <ProductGrid products={products.slice(0, 4)} loading={loading} />
 
         <div className="mt-10 text-center md:hidden">
           <Link to="/shop">
