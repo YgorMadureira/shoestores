@@ -18,13 +18,16 @@ export default function AdminLogin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await signIn(email, password);
-    if (error) {
-      toast.error('Credenciais inválidas ou usuário não é administrador.');
-    } else {
-      navigate('/admin/settings');
+    try {
+      const { error } = await signIn(email, password);
+      if (error) {
+        toast.error('Credenciais inválidas ou usuário não é administrador.');
+      } else {
+        navigate('/admin/settings');
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
