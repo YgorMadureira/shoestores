@@ -41,6 +41,107 @@ export type Database = {
         }
         Relationships: []
       }
+      customers: {
+        Row: {
+          address: string | null
+          address_number: string | null
+          cep: string | null
+          city: string | null
+          complement: string | null
+          cpf: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          state: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          address_number?: string | null
+          cep?: string | null
+          city?: string | null
+          complement?: string | null
+          cpf: string
+          created_at?: string
+          email: string
+          full_name: string
+          id: string
+          phone?: string | null
+          state?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          address_number?: string | null
+          cep?: string | null
+          city?: string | null
+          complement?: string | null
+          cpf?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          state?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          company_id: string
+          created_at: string
+          customer_id: string
+          id: string
+          items: Json
+          shipping_address: Json | null
+          shipping_cost: number
+          status: string
+          subtotal: number
+          total: number
+          tracking_code: string | null
+          updated_at: string
+        }
+        Insert: {
+          company_id?: string
+          created_at?: string
+          customer_id: string
+          id?: string
+          items?: Json
+          shipping_address?: Json | null
+          shipping_cost?: number
+          status?: string
+          subtotal?: number
+          total?: number
+          tracking_code?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          customer_id?: string
+          id?: string
+          items?: Json
+          shipping_address?: Json | null
+          shipping_cost?: number
+          status?: string
+          subtotal?: number
+          total?: number
+          tracking_code?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
