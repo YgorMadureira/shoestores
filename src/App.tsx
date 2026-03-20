@@ -10,6 +10,8 @@ import Shop from "./pages/Shop.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
 import CartPage from "./pages/CartPage.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
+import CustomerLogin from "./pages/CustomerLogin.tsx";
+import CustomerAccount from "./pages/CustomerAccount.tsx";
 import AdminLogin from "./pages/AdminLogin.tsx";
 import AdminSettings from "./pages/AdminSettings.tsx";
 import AdminProducts from "./pages/AdminProducts.tsx";
@@ -34,6 +36,8 @@ const App = () => (
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/login" element={<CustomerLogin />} />
+              <Route path="/minha-conta" element={<CustomerAccount />} />
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
               <Route path="/admin/products" element={<AdminProducts />} />
